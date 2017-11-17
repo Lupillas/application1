@@ -7,6 +7,8 @@ def translate(_word):
     _word=_word.lower()
     if _word in data:
         return data[_word]
+    elif _word.title() in data:
+        return data[_word.title()]
     elif len(get_close_matches(_word,data.keys())) > 0:
         yn = input("Did you mean %s instead? Enter Y if yes, or N if no: " % get_close_matches(_word,data.keys())[0])
         if yn.lower() == "y":
